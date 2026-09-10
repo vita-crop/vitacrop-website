@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  VITACROP  —  WIX EMBED VERSION
+  ============================================================================
+  Paste this whole file into Wix:  Add  ->  Embed Code  ->  Embed HTML
+                                   ->  "Code" mode  ->  paste  ->  Update
+  Then stretch the element to full width and give it a tall height (~3200px).
+
+  >>> BEFORE IT WILL SHOW IMAGES <<<
+  Upload the 12 files in  vitacrop-website/assets/  to your Wix Media Manager,
+  then scroll to the IMAGES { ... } list near the bottom of this file and paste
+  each image's Wix URL next to its name.
+  ============================================================================
+-->
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitacrop Technologies </title>
+    <meta name="description" content="Vitacrop Technologies Pvt. Ltd. rewrite genetic informations of crops to create genetic variations for disease resistance, quality, climate-resilience, and high-yield">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Fraunces', 'serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac',
+                            400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d',
+                            800: '#166534', 900: '#14532d', 950: '#052e16',
+                        },
+                        gold: {
+                            50: '#fdf9ec', 100: '#f9efc9', 200: '#f2dd8f', 300: '#eac553',
+                            400: '#e3ac2e', 500: '#d3901f', 600: '#b16f19', 700: '#8d5218',
+                            800: '#744219', 900: '#63381a',
+                        },
+                        stone: {
+                            50: '#faf9f7', 100: '#f2f0eb',
+                        }
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f2f0eb; }
+        ::-webkit-scrollbar-thumb { background: #c9c3b6; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #a39c8b; }
+
+        /* Hero crossfade slideshow */
+        .hero-slide {
+            position: absolute; inset: 0; background-size: cover; background-position: center;
+            opacity: 0; animation: heroFade 30s infinite;
+        }
+        .hero-slide:nth-child(1) { animation-delay: 0s; }
+        .hero-slide:nth-child(2) { animation-delay: 5s; }
+        .hero-slide:nth-child(3) { animation-delay: 10s; }
+        .hero-slide:nth-child(4) { animation-delay: 15s; }
+        .hero-slide:nth-child(5) { animation-delay: 20s; }
+        .hero-slide:nth-child(6) { animation-delay: 25s; }
+        @keyframes heroFade {
+            0% { opacity: 0; }
+            3% { opacity: 1; }
+            17% { opacity: 1; }
+            20% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+        /* Marquee ticker */
+        .marquee-track {
+            display: flex; width: max-content; animation: marquee 32s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .step-line { background: repeating-linear-gradient(to right, #d3901f 0, #d3901f 8px, transparent 8px, transparent 16px); }
+        .step-line-v { background: repeating-linear-gradient(to bottom, #d3901f 0, #d3901f 8px, transparent 8px, transparent 16px); }
+    </style>
+</head>
+<body class="font-sans antialiased text-stone-900 bg-stone-50 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-stone-50/90 backdrop-blur-md border-b border-stone-200/80 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2">
+                <img src="assets/logo.png" alt="Vitacrop Technologies" class="h-16 w-auto">
+                <span class="font-serif font-semibold text-lg text-stone-900 hidden sm:block">Vitacrop Technologies</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm">
+                <a href="#platform" class="text-stone-600 hover:text-brand-700 transition-colors">Platform</a>
+                <a href="#process" class="text-stone-600 hover:text-brand-700 transition-colors">Technology</a>
+                <a href="#crops" class="text-stone-600 hover:text-brand-700 transition-colors">Crops</a>
+                <a href="#insights" class="text-stone-600 hover:text-brand-700 transition-colors">Insights</a>
+                <a href="#contact" class="px-5 py-2 rounded-full bg-brand-700 text-white hover:bg-brand-800 transition-colors text-sm font-medium">Partner With Us</a>
+            </nav>
+
+            <button class="md:hidden text-stone-700 focus:outline-none" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <div class="md:hidden absolute w-full bg-stone-50 border-b border-stone-200 hidden shadow-xl" id="mobile-menu">
+            <div class="px-6 pt-2 pb-6 flex flex-col gap-4 font-medium text-center">
+                <a href="#platform" class="text-stone-600 hover:text-brand-700 py-2 mobile-link">Platform</a>
+                <a href="#process" class="text-stone-600 hover:text-brand-700 py-2 mobile-link">Technology</a>
+                <a href="#crops" class="text-stone-600 hover:text-brand-700 py-2 mobile-link">Crops</a>
+                <a href="#insights" class="text-stone-600 hover:text-brand-700 py-2 mobile-link">Insights</a>
+                <a href="#contact" class="px-5 py-3 rounded-full bg-brand-700 text-white hover:bg-brand-800 mt-2 mobile-link">Partner With Us</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero -->
+        <section id="home" class="relative h-screen min-h-[640px] overflow-hidden">
+            <div class="absolute inset-0">
+                <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1437252611977-07f74518abd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=75');"></div>
+                <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1590701068745-481e93a21cf4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=75');"></div>
+                <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1602989106211-81de671c23a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=75');"></div>
+                <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1634337781106-4c6a12b820a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=75');"></div>
+                <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1565522734001-f00e62ec8424?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=75');"></div>
+                <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1758552219061-5148ccb5bc5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=75');"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/60 to-stone-950/40"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-stone-950/70 via-stone-950/10 to-transparent"></div>
+            </div>
+
+            <div class="relative z-10 h-full flex flex-col justify-center container mx-auto px-6">
+                <div class="max-w-2xl">
+                    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur border border-white/20 text-brand-200 text-xs font-mono uppercase tracking-widest mb-6">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse"></span>
+                        PRECISION GENETICS PLATFORM
+                    </span>
+                    <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-[1.1] mb-6">
+                        Rewriting Crop Genetics for a Sustainable Future
+                    </h1>
+                    <p class="text-lg text-stone-200 mb-10 max-w-xl font-light leading-relaxed">
+                        Vitacrop Technologies harnesses advanced genetic tools to accelerate crop improvement, enabling the development and selection of superior genetics for more productive, resilient, and sustainable agriculture.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#process" class="px-8 py-3 rounded-full font-medium text-stone-950 bg-white hover:bg-stone-100 transition-colors flex items-center justify-center gap-2">
+                            How We Work <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                        <a href="#crops" class="px-8 py-3 rounded-full font-medium text-white border border-white/40 hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
+                            View Our Crop Pipeline
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-0 left-0 right-0 z-10 border-t border-white/10 bg-stone-950/40 backdrop-blur-sm">
+                <div class="container mx-auto px-6 py-4 flex flex-wrap justify-between gap-6 text-white">
+                    <div class="flex items-center gap-2"><span class="font-serif text-xl font-semibold">99.9%</span><span class="text-xs text-stone-300 font-mono uppercase">Precision</span></div>
+                    <div class="flex items-center gap-2"><span class="font-serif text-xl font-semibold">5x</span><span class="text-xs text-stone-300 font-mono uppercase">Faster Trait Dev.</span></div>
+                    <div class="flex items-center gap-2"><span class="font-serif text-xl font-semibold">7</span><span class="text-xs text-stone-300 font-mono uppercase">Crops in Pipeline</span></div>
+                    <div class="flex items-center gap-2"><span class="font-serif text-xl font-semibold">0</span><span class="text-xs text-stone-300 font-mono uppercase">Foreign DNA</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Crop ticker marquee -->
+        <div class="bg-brand-800 text-brand-50 py-3 overflow-hidden border-b border-brand-900">
+            <div class="marquee-track font-mono text-sm tracking-wide uppercase">
+                <span class="flex items-center gap-3 px-6">Tomato <i class="fa-solid fa-circle text-[4px] text-brand-400"></i> Rice <i class="fa-solid fa-circle text-[4px] text-brand-400"></i> Cotton <i class="fa-solid fa-circle text-[4px] text-brand-400"></i> Corn <i class="fa-solid fa-circle text-[4px] text-brand-400"></i> Wheat <i class="fa-solid fa-circle text-[4px] text-brand-400"></i> Finger Millet <i class="fa-solid fa-circle text-[4px] text-brand-400"></i> Mustard <i class="fa-solid fa-circle text-[4px] text-brand-400"></i></span>
+                <span class="flex items-center gap-3 px-6">Tomato <i class="fa-solid fa-circle text-[4px] text-brand-400"></i> Rice <i class="fa-solid fa-circle text-[4px] text-brand-400"></i> Cotton <i class="fa-solid fa-circle text-[4px] text-brand-400"></i> Corn <i class="fa-solid fa-circle text-[4px] text-brand-400"></i> Wheat <i class="fa-solid fa-circle text-[4px] text-brand-400"></i> Finger Millet <i class="fa-solid fa-circle text-[4px] text-brand-400"></i> Mustard <i class="fa-solid fa-circle text-[4px] text-brand-400"></i></span>
+            </div>
+        </div>
+
+        <!-- Platform / About -->
+        <section id="platform" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-sm font-mono text-gold-600 tracking-widest uppercase mb-3">System Overview</h2>
+                        <h3 class="font-serif text-3xl md:text-4xl font-semibold text-stone-900 mb-6 leading-tight">Precision at the Genomic Level.</h3>
+                        <p class="text-stone-600 mb-5 leading-relaxed">
+                            Vitacrop Technologies Pvt. Ltd. is an agribiotech company developing advanced genetics and technologies to accelerate the discovery, validation, and development of valuable agronomic traits in crops.
+                        </p>
+                        <p class="text-stone-600 mb-8 leading-relaxed">
+                            We pair genomic data with advanced tools to compress the traditional breeding timeline and cost by one-third, accelerating evolution of naturally occurring traits for better and rapid adaptation, entirely within the plant's own genome.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 text-brand-800 text-sm font-medium border border-brand-100"><i class="fa-solid fa-check text-brand-600"></i> Non-GMO Output</span>
+                            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 text-brand-800 text-sm font-medium border border-brand-100"><i class="fa-solid fa-check text-brand-600"></i> Disease Resistant</span>
+                            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 text-brand-800 text-sm font-medium border border-brand-100"><i class="fa-solid fa-check text-brand-600"></i> Better Quality</span>
+                            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 text-brand-800 text-sm font-medium border border-brand-100"><i class="fa-solid fa-check text-brand-600"></i> Climate Resilient</span>
+                            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 text-brand-800 text-sm font-medium border border-brand-100"><i class="fa-solid fa-check text-brand-600"></i> High-Yield</span>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -inset-4 border border-gold-300 rounded-2xl -z-10 hidden sm:block"></div>
+                        <img src="assets/potato-protoplast.png" alt="20230618094123" class="rounded-2xl shadow-xl object-cover h-[440px] w-full">
+                        <div class="absolute -bottom-6 -left-6 bg-white p-5 rounded-xl shadow-lg border border-stone-100 flex items-center gap-4 max-w-xs">
+                            <div class="w-11 h-11 bg-brand-100 rounded-full flex items-center justify-center text-brand-700 shrink-0">
+                                <i class="fa-solid fa-dna"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process / Technology -->
+        <section id="process" class="py-24 bg-stone-100 border-t border-stone-200">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-2xl mx-auto mb-20">
+                    <h2 class="text-sm font-mono text-gold-600 tracking-widest uppercase mb-3">The Pipeline</h2>
+                    <h3 class="font-serif text-3xl md:text-4xl font-semibold text-stone-900 mb-4">From genomic hypothesis to field-ready plant</h3>
+                    <p class="text-stone-600">A four-stage pipeline takes each trait from data to a regenerated, validated crop.</p>
+                </div>
+
+                <div class="grid md:grid-cols-4 gap-6 md:gap-4 relative">
+                    <!-- connecting line desktop -->
+                    <div class="hidden md:block absolute top-8 left-[12.5%] right-[12.5%] h-px step-line"></div>
+
+                    <!-- Step 1 -->
+                    <div class="relative flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-white border-2 border-gold-400 flex items-center justify-center font-serif text-xl font-semibold text-gold-600 shadow-sm mb-6 relative z-10">01</div>
+                        <div class="rounded-xl overflow-hidden shadow-md mb-5 w-full h-36">
+                            <img src="https://cdn.pixabay.com/photo/2025/03/20/17/57/dna-9483532_1280.jpg" alt="Illuminated DNA helix representing genomic sequence analysis" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="font-semibold text-stone-900 mb-2">Target Discovery</h4>
+                        <p class="text-sm text-stone-600 leading-relaxed">We integrate genomic, biological, and phenotypic insights to identify and prioritize genetic targets associated with valuable agronomic traits.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                     <div class="relative flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-white border-2 border-gold-400 flex items-center justify-center font-serif text-xl font-semibold text-gold-600 shadow-sm mb-6 relative z-10">02</div>
+                        <div class="rounded-xl overflow-hidden shadow-md mb-5 w-full h-36">
+                            <img src="assets/precision-editing.png" alt="Precision editing"
+                            loading="lazy"
+                            class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="font-semibold text-stone-900 mb-2">Precision Editing</h4>
+                        <p class="text-sm text-stone-600 leading-relaxed">Intracellular delivery of CRISPR-Cas reagents to make targeted edits on discovered loci — no foreign DNA remains in cell after editing.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-white border-2 border-gold-400 flex items-center justify-center font-serif text-xl font-semibold text-gold-600 shadow-sm mb-6 relative z-10">03</div>
+                        <div class="rounded-xl overflow-hidden shadow-md mb-5 w-full h-36">
+                            <img src="https://images.unsplash.com/photo-1624905918163-bd455354cfed?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Rows of regenerated plantlets in nursery trays" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="font-semibold text-stone-900 mb-2">Tissue Culture &amp; Regeneration</h4>
+                        <p class="text-sm text-stone-600 leading-relaxed">Robust pipeline for the transformation & regeneration, fertile plantlets ready for greenhouse.</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-white border-2 border-gold-400 flex items-center justify-center font-serif text-xl font-semibold text-gold-600 shadow-sm mb-6 relative z-10">04</div>
+                        <div class="rounded-xl overflow-hidden shadow-md mb-5 w-full h-36">
+                            <img src="https://images.unsplash.com/photo-1686008674009-876c599f1fe9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Aerial view of replicated field trial plots" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="font-semibold text-stone-900 mb-2">Field Validation</h4>
+                        <p class="text-sm text-stone-600 leading-relaxed">Multi-location trials confirm trait performance under real agronomic and climate conditions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Crops -->
+<section id="crops" class="py-24 bg-white">
+    <div class="container mx-auto px-6">
+        
+        <!-- Main Section Header -->
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <h2 class="text-sm font-mono text-gold-600 tracking-widest uppercase mb-3">CROP DEVELOPMENT PIPELINE</h2>
+            <h3 class="font-serif text-3xl md:text-4xl font-semibold text-stone-900 mb-4">Engineering for Farmers' Needs</h3>
+            <p class="text-stone-600">We apply our trait development pipeline to the staple and cash crops that matter most for regional food security and farmer profitability.</p>
+        </div>
+
+        <!-- Section 1: Active R&D Pipeline -->
+        <div class="mb-16">
+            <div class="flex items-center mb-8">
+                <h3 class="font-serif text-2xl font-semibold text-stone-900">Active R&D Pipeline</h3>
+                <div class="ml-4 flex-grow h-px bg-stone-200"></div>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Rice -->
+                <div class="group rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-xl transition-shadow">
+                    <div class="h-52 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1602989106211-81de671c23a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Green rice paddy field" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-xs font-mono text-gold-700 bg-gold-50 px-2 py-1 rounded">DSR adapted Rice &amp; Grain Quality</span>
+                        <h4 class="font-semibold text-stone-900 text-lg mt-3">Rice</h4>
+                        <p class="text-stone-600 text-sm mt-1 leading-relaxed">DSR adapted cultivar for better environment and sustainable rice productivity. Better grain quality for targeted premium market segment.</p>
+                    </div>
+                </div>
+               
+                <!-- Tomato -->
+                <div class="group rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-xl transition-shadow">
+                    <div class="h-52 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1758552219061-5148ccb5bc5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ripe tomatoes growing on the vine" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-xs font-mono text-gold-700 bg-gold-50 px-2 py-1 rounded">Disease Resistance &amp; Fruit quality</span>
+                        <h4 class="font-semibold text-stone-900 text-lg mt-3">Tomato</h4>
+                        <p class="text-stone-600 text-sm mt-1 leading-relaxed">Minimizing loss caused by disease outbreaks and extreme weather conditions.</p>
+                    </div>
+                </div>
+        
+                <!-- Cotton -->
+                <div class="group rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-xl transition-shadow">
+                    <div class="h-52 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1634337781106-4c6a12b820a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cotton bolls on the plant in golden light" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-xs font-mono text-gold-700 bg-gold-50 px-2 py-1 rounded">Pest Resistance, Commercial Quality</span>
+                        <h4 class="font-semibold text-stone-900 text-lg mt-3">Cotton</h4>
+                        <p class="text-stone-600 text-sm mt-1 leading-relaxed">Reduce bollworm damage and pesticide dependency; Boosting operational efficiency & fiber quality to increase farmer's profitability.</p>
+                    </div>
+                </div>
+
+                <!-- Finger Millet -->
+                <div class="group rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-xl transition-shadow">
+                    <div class="h-52 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1768729339784-bf0b5fb86918?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Finger millet seed heads in the field" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-xs font-mono text-gold-700 bg-gold-50 px-2 py-1 rounded">Disease Resistance &amp; Lodging</span>
+                        <h4 class="font-semibold text-stone-900 text-lg mt-3">Finger Millet</h4>
+                        <p class="text-stone-600 text-sm mt-1 leading-relaxed">Boosting Disease resistance in Ragi and preventing lodging to ensure enough productivity of the 'Superfood'.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Upcoming R&D Focus -->
+        <div>
+            <div class="flex items-center mb-8">
+                <h3 class="font-serif text-2xl font-semibold text-stone-900">Upcoming Pipeline</h3>
+                <div class="ml-4 flex-grow h-px bg-stone-200"></div>
+            </div>
+            
+            <!-- Kept grid-cols-4 so the cards remain the exact same size as the section above -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                 
+                <!-- Corn -->
+                <div class="group rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-xl transition-shadow opacity-90 hover:opacity-100">
+                    <div class="h-52 overflow-hidden relative grayscale-[20%] group-hover:grayscale-0 transition-all duration-500">
+                        <img src="https://images.unsplash.com/photo-1565522734001-f00e62ec8424?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Corn field under a blue sky" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-xs font-mono text-stone-500 bg-stone-100 px-2 py-1 rounded">In Development</span>
+                        <h4 class="font-semibold text-stone-900 text-lg mt-3">Corn</h4>
+                        <p class="text-stone-600 text-sm mt-1 leading-relaxed">Increased resistance to multiple diseases in corn to ensure increased income for farmers.</p>
+                    </div>
+                </div>
+
+                <!-- Wheat -->
+                <div class="group rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-xl transition-shadow opacity-90 hover:opacity-100">
+                    <div class="h-52 overflow-hidden relative grayscale-[20%] group-hover:grayscale-0 transition-all duration-500">
+                        <img src="https://images.unsplash.com/photo-1437252611977-07f74518abd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Golden wheat crop under a clear sky" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-xs font-mono text-stone-500 bg-stone-100 px-2 py-1 rounded">In Development</span>
+                        <h4 class="font-semibold text-stone-900 text-lg mt-3">Wheat</h4>
+                        <p class="text-stone-600 text-sm mt-1 leading-relaxed">Sustained grain fill under water-limited, high-temperature conditions.</p>
+                    </div>
+                </div>
+
+                <!-- Mustard -->
+                <div class="group rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-xl transition-shadow opacity-90 hover:opacity-100">
+                    <div class="h-52 overflow-hidden relative grayscale-[20%] group-hover:grayscale-0 transition-all duration-500">
+                        <img src="https://images.unsplash.com/photo-1590701068745-481e93a21cf4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Yellow mustard flower field" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-xs font-mono text-stone-500 bg-stone-100 px-2 py-1 rounded">In Development</span>
+                        <h4 class="font-semibold text-stone-900 text-lg mt-3">Mustard</h4>
+                        <p class="text-stone-600 text-sm mt-1 leading-relaxed">Trait edits raise seed oil content while maintaining pod-shatter tolerance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+                <!-- CTA tile -->
+                    <div class="rounded-2xl border-2 border-dashed border-gold-300 bg-gold-50/50 flex flex-col items-center justify-center text-center p-6">
+                        <div class="w-12 h-12 rounded-full bg-gold-100 text-gold-700 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <h4 class="font-semibold text-stone-900 mb-2">Have a priority crop in mind?</h4>
+                        <p class="text-stone-600 text-sm mb-4">Let’s work together to develop better genetics for the traits that matter most.</p>
+                        <a href="#contact" class="text-brand-700 font-medium text-sm hover:text-brand-800">Start a conversation &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Insights -->
+        <section id="insights" class="py-24 bg-stone-100 border-t border-stone-200">
+            <div class="container mx-auto px-6">
+                <div class="flex justify-between items-end mb-12 border-b border-stone-300 pb-4">
+                    <div>
+                        <h2 class="text-sm font-mono text-gold-600 tracking-widest uppercase mb-2">Research &amp; Updates</h2>
+                        <h3 class="font-serif text-3xl font-semibold text-stone-900">Latest from the Vitacrop</h3>
+                    </div>
+                    <a href="#" class="hidden sm:flex text-brand-700 hover:text-brand-900 font-medium items-center gap-2">
+                        View All <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+               <style>
+  /* Custom Animation for Continuous Right-to-Left Scroll */
+  @keyframes scroll-left {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+    /* Adjust '30s' to make it scroll faster or slower */
+    animation: scroll-left 30s linear infinite; 
+  }
+
+  /* Pauses the scrolling when a user hovers over an article with their mouse */
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  /* Fixed width for the cards so they don't shrink while scrolling */
+  .news-card {
+    width: 350px;
+    flex-shrink: 0;
+  }
+</style>
+
+<section class="py-16 overflow-hidden bg-white">
+    <!-- Scrolling Track Container -->
+    <div class="relative w-full overflow-hidden flex">
+        
+        <!-- The Marquee Flex Container (Contains 2 identical sets of articles for seamless looping) -->
+        <div class="animate-marquee gap-8 px-4">
+            
+            <!-- ================= SET 1 ================= -->
+            
+            <!-- Article 1: July 2025 -->
+            <article class="news-card bg-white rounded-2xl overflow-hidden border border-stone-200 hover:shadow-lg transition-shadow flex flex-col">
+                <a href="https://theprint.in/ground-reports/indian-scientists-arming-plants-gene-editing-climate-proofing/2678829/" class="block h-40 overflow-hidden relative group">
+                    <img src="assets/feature-image8.png" alt="Vitacrop's work covered by The Print" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </a>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="flex items-center gap-4 mb-3">
+                        <span class="text-xs font-mono bg-stone-100 border border-stone-200 text-stone-600 px-2 py-1 rounded">Ground Reports</span>
+                        <span class="text-xs text-stone-500 font-mono">July 04, 2025</span>
+                    </div>
+                    <h4 class="font-semibold text-stone-900 text-lg mb-2 hover:text-brand-700 transition-colors">
+                        <a href="https://theprint.in/ground-reports/indian-scientists-arming-plants-gene-editing-climate-proofing/2678829/">Indian scientists are arming plants through gene editing. And climate-proofing them</a>
+                    </h4>
+                </div>
+            </article>
+
+            <!-- Article 2: October 2025 -->
+            <article class="news-card bg-white rounded-2xl overflow-hidden border border-stone-200 hover:shadow-lg transition-shadow flex flex-col">
+                <a href="https://birac.nic.in/webcontent/1759752792_big_24_awardees.pdf" class="block h-40 bg-stone-50 p-4 relative overflow-hidden group">
+                    <img src="assets/birac-logo.png" alt="BIRAC BIG 2024 Awardees" class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500">
+                </a>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="flex items-center gap-4 mb-3">
+                        <span class="text-xs font-mono bg-stone-100 border border-stone-200 text-stone-600 px-2 py-1 rounded">Grant</span>
+                        <span class="text-xs text-stone-500 font-mono">Oct 07, 2025</span>
+                    </div>
+                    <h4 class="font-semibold text-stone-900 text-lg mb-2 hover:text-brand-700 transition-colors">
+                        <a href="https://birac.nic.in/webcontent/1759752792_big_24_awardees.pdf">Vitacrop Technologies awarded with BIRAC-BIG 2024 grant to work on an abandoned insurance/famine legume.</a>
+                    </h4>
+                </div>
+            </article>
+
+            <!-- Article 3: March 2026 -->
+            <article class="news-card bg-white rounded-2xl overflow-hidden border border-stone-200 hover:shadow-lg transition-shadow flex flex-col">
+                <!-- Using a <div> instead of <a> so there is no link on the image -->
+                <div class="block h-40 bg-stone-50 relative overflow-hidden group">
+                    <img src="assets/mutagenesis.png" alt="New Customer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="flex items-center gap-4 mb-3">
+                        <span class="text-xs font-mono bg-stone-100 border border-stone-200 text-stone-600 px-2 py-1 rounded">Customer</span>
+                        <span class="text-xs text-stone-500 font-mono">March 18, 2026</span>
+                    </div>
+                    <h4 class="font-semibold text-stone-900 text-lg mb-2 hover:text-brand-700 transition-colors">
+                        <a href="#">Vitacrop Technologies Signs Its First Customer for Customized Crop Trait Development</a>
+                    </h4>
+                </div>
+            </article>
+
+            <!-- Article 4: April 2026 -->
+            <article class="news-card bg-white rounded-2xl overflow-hidden border border-stone-200 hover:shadow-lg transition-shadow flex flex-col">
+                <a href="https://www.profluent.bio" class="block h-40 bg-stone-50 p-4 relative overflow-hidden group">
+                    <img src="assets/opc.png" alt="CRISPR License" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+                </a>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="flex items-center gap-4 mb-3">
+                        <span class="text-xs font-mono bg-stone-100 border border-stone-200 text-stone-600 px-2 py-1 rounded">Technology News</span>
+                        <span class="text-xs text-stone-500 font-mono">Apr 07, 2026</span>
+                    </div>
+                    <h4 class="font-semibold text-stone-900 text-lg mb-2 hover:text-brand-700 transition-colors">
+                        <a href="https://www.profluent.bio">Vitacrop Technologies Secures Commercial License for OpenCRISPR-1 from Profluent</a>
+                    </h4>
+                </div>
+            </article>
+
+            <!-- ================= SET 2 (Duplicate for Infinite Scroll) ================= -->
+            
+            <!-- Article 1 Duplicate -->
+            <article class="news-card bg-white rounded-2xl overflow-hidden border border-stone-200 hover:shadow-lg transition-shadow flex flex-col">
+                <a href="https://theprint.in/ground-reports/indian-scientists-arming-plants-gene-editing-climate-proofing/2678829/" class="block h-40 overflow-hidden relative group">
+                    <img src="assets/feature-image8.png" alt="Vitacrop's work covered by The Print" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </a>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="flex items-center gap-4 mb-3">
+                        <span class="text-xs font-mono bg-stone-100 border border-stone-200 text-stone-600 px-2 py-1 rounded">Ground Reports</span>
+                        <span class="text-xs text-stone-500 font-mono">July 04, 2025</span>
+                    </div>
+                    <h4 class="font-semibold text-stone-900 text-lg mb-2 hover:text-brand-700 transition-colors">
+                        <a href="https://theprint.in/ground-reports/indian-scientists-arming-plants-gene-editing-climate-proofing/2678829/">Indian scientists are arming plants through gene editing. And climate-proofing them</a>
+                    </h4>
+                </div>
+            </article>
+
+            <!-- Article 2 Duplicate -->
+            <article class="news-card bg-white rounded-2xl overflow-hidden border border-stone-200 hover:shadow-lg transition-shadow flex flex-col">
+                <a href="https://birac.nic.in/webcontent/1759752792_big_24_awardees.pdf" class="block h-40 bg-stone-50 p-4 relative overflow-hidden group">
+                    <img src="assets/birac-logo.png" alt="BIRAC BIG 2024 Awardees" class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500">
+                </a>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="flex items-center gap-4 mb-3">
+                        <span class="text-xs font-mono bg-stone-100 border border-stone-200 text-stone-600 px-2 py-1 rounded">Grant</span>
+                        <span class="text-xs text-stone-500 font-mono">Oct 07, 2025</span>
+                    </div>
+                    <h4 class="font-semibold text-stone-900 text-lg mb-2 hover:text-brand-700 transition-colors">
+                        <a href="https://birac.nic.in/webcontent/1759752792_big_24_awardees.pdf">Vitacrop Technologies awarded with BIRAC-BIG 2024 grant to work on an abandoned insurance/famine legume.</a>
+                    </h4>
+                </div>
+            </article>
+
+            <!-- Article 3: March 2026 -->
+            <article class="news-card bg-white rounded-2xl overflow-hidden border border-stone-200 hover:shadow-lg transition-shadow flex flex-col">
+                <!-- Using a <div> instead of <a> so there is no link on the image -->
+                <div class="block h-40 bg-stone-50 relative overflow-hidden group">
+                    <img src="assets/mutagenesis.png" alt="New Customer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="flex items-center gap-4 mb-3">
+                        <span class="text-xs font-mono bg-stone-100 border border-stone-200 text-stone-600 px-2 py-1 rounded">Customer</span>
+                        <span class="text-xs text-stone-500 font-mono">March 18, 2026</span>
+                    </div>
+                    <h4 class="font-semibold text-stone-900 text-lg mb-2 hover:text-brand-700 transition-colors">
+                        <a href="#">Vitacrop Technologies Signs Its First Customer for Customized Crop Trait Development</a>
+                    </h4>
+                </div>
+            </article>
+
+            <!-- Article 4 Duplicate -->
+            <article class="news-card bg-white rounded-2xl overflow-hidden border border-stone-200 hover:shadow-lg transition-shadow flex flex-col">
+                <a href="https://www.profluent.bio" class="block h-40 bg-stone-50 p-4 relative overflow-hidden group">
+                    <img src="assets/opc.png" alt="CRISPR License" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+                </a>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="flex items-center gap-4 mb-3">
+                        <span class="text-xs font-mono bg-stone-100 border border-stone-200 text-stone-600 px-2 py-1 rounded">Technology News</span>
+                        <span class="text-xs text-stone-500 font-mono">Apr 07, 2026</span>
+                    </div>
+                    <h4 class="font-semibold text-stone-900 text-lg mb-2 hover:text-brand-700 transition-colors">
+                        <a href="https://www.profluent.bio">Vitacrop Technologies Secures Commercial License for OpenCRISPR-1 from Profluent</a>
+                    </h4>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+<!-- Supported By Section -->
+<section id="supported-by" class="py-20 bg-stone-50 border-t border-stone-100 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+        
+        <div class="text-left mb-12">
+            <span class="font-mono text-xs uppercase tracking-[0.2em] text-gold-600">
+                Our Ecosystem
+            </span>
+
+            <h2 class="mt-3 font-serif text-3xl md:text-4xl font-semibold text-brand-950">
+                Supported By
+            </h2>
+
+            <p class="mt-4 text-stone-600 max-w-2xl">
+                Vitacrop is supported by leading government initiatives,
+                biotechnology ecosystems, and agricultural innovation institutions.
+            </p>
+        </div>
+
+        <!-- Moving Logo Strip -->
+        <div class="relative w-full overflow-hidden">
+
+            <div class="supported-track">
+
+                <!-- First Set -->
+                <div class="supported-logo">
+                    <img src="assets/startup-india.png"
+                         alt="Startup India">
+                </div>
+
+                <div class="supported-logo">
+                    <img src="assets/startup-karnataka.png"
+                         alt="Startup Karnataka">
+                </div>
+
+                <div class="supported-logo">
+                    <img src="assets/msme.png"
+                         alt="MSME">
+                </div>
+
+                <div class="supported-logo">
+                    <img src="assets/birac-logo.png"
+                         alt="BIRAC">
+                </div>
+
+                <div class="supported-logo">
+                    <img src="assets/c-camp.png"
+                         alt="C-CAMP">
+                </div>
+
+                <div class="supported-logo">
+                    <img src="assets/uasb.png"
+                         alt="AgriIncubation - BioNEST, UASB">
+                </div>
+
+                <!-- Duplicate Set for Seamless Loop -->
+                <div class="supported-logo">
+                    <img src="assets/startup-india.png"
+                         alt="Startup India">
+                </div>
+
+                <div class="supported-logo">
+                    <img src="assets/startup-karnataka.png"
+                         alt="Startup Karnataka">
+                </div>
+
+                <div class="supported-logo">
+                    <img src="assets/msme.png"
+                         alt="MSME">
+                </div>
+
+                <div class="supported-logo">
+                    <img src="assets/birac-logo.png"
+                         alt="BIRAC">
+                </div>
+
+                <div class="supported-logo">
+                    <img src="assets/c-camp.png"
+                         alt="C-CAMP">
+                </div>
+
+                <div class="supported-logo">
+                    <img src="assets/uasb.png"
+                         alt="AgriIncubation - BioNEST, UASB">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .supported-track {
+        display: flex;
+        align-items: center;
+        width: max-content;
+        gap: 70px;
+        animation: supportedMarquee 28s linear infinite;
+    }
+
+    .supported-logo {
+        width: 180px;
+        height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .supported-logo img {
+        max-width: 160px;
+        max-height: 70px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
+
+    @keyframes supportedMarquee {
+        from {
+            transform: translateX(-50%);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+
+    .supported-track:hover {
+        animation-play-state: paused;
+    }
+
+    @media (max-width: 768px) {
+        .supported-track {
+            gap: 40px;
+            animation-duration: 22s;
+        }
+
+        .supported-logo {
+            width: 140px;
+            height: 75px;
+        }
+
+        .supported-logo img {
+            max-width: 125px;
+            max-height: 55px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .supported-track {
+            animation: none;
+            transform: translateX(0);
+        }
+    }
+</style>
+        <!-- Contact -->
+        <section id="contact" class="py-24 bg-stone-950 text-white relative overflow-hidden">
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-700 rounded-full blur-[120px] opacity-20"></div>
+            <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-gold-500 rounded-full blur-[120px] opacity-10"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="flex flex-col lg:flex-row gap-16">
+                    <div class="lg:w-5/12">
+                        <h2 class="text-sm font-mono text-gold-400 tracking-widest uppercase mb-3">Get In Touch</h2>
+                        <h3 class="font-serif text-3xl md:text-4xl font-semibold mb-6">Partner with us.</h3>
+                        <p class="text-stone-400 mb-8 leading-relaxed">
+                            Interested in our platform capabilities or exploring collaboration opportunities? Connect with our technical team.
+                        </p>
+
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-brand-400 shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold mb-1">Registered Address</h5>
+                                    <p class="text-stone-400 text-sm">HD-275, 10th Floor, WeWork RMZ Latitude Commercial<br>Hebbal Kempapura<br>Bengaluru &ndash; 560024<br>Karnataka, INDIA</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-brand-400 shrink-0">
+                                    <i class="fa-solid fa-flask"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold mb-1">Operation Address</h5>
+                                    <p class="text-stone-400 text-sm">Vitacrop Technologies Pvt. Ltd.<br>C-CAMP, GKVK Post, Bellary Road<br>Bengaluru &ndash; 560065<br>Karnataka, INDIA</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-brand-400 shrink-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold mb-1">Email</h5>
+                                    <p class="text-stone-400 text-sm">info@vita-crop.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:w-7/12">
+                        <form id="contact-form" class="bg-white/5 border border-white/10 p-8 rounded-2xl shadow-2xl relative backdrop-blur-sm">
+                            <div id="form-success" class="hidden absolute inset-0 bg-stone-950/95 rounded-2xl flex flex-col items-center justify-center z-10">
+                                <div class="w-16 h-16 bg-brand-500/20 text-brand-400 rounded-full flex items-center justify-center mb-4">
+                                    <i class="fa-solid fa-check text-3xl"></i>
+                                </div>
+                                <h4 class="text-xl font-semibold text-white mb-2">Message sent</h4>
+                                <p class="text-stone-400">Our team will review your inquiry and respond shortly.</p>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-stone-400 mb-2">Full Name</label>
+                                    <input type="text" required class="w-full px-4 py-3 bg-stone-900 border border-white/10 rounded-lg focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 text-white transition-colors" placeholder="Jane Doe">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-stone-400 mb-2">Email</label>
+                                    <input type="email" required class="w-full px-4 py-3 bg-stone-900 border border-white/10 rounded-lg focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 text-white transition-colors" placeholder="jane@company.com">
+                                </div>
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-sm font-medium text-stone-400 mb-2">Inquiry Type</label>
+                                <select class="w-full px-4 py-3 bg-stone-900 border border-white/10 rounded-lg focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 text-white transition-colors appearance-none">
+                                    <option>Platform Partnership</option>
+                                    <option>Investment Opportunities</option>
+                                    <option>Media Inquiry</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="mb-8">
+                                <label class="block text-sm font-medium text-stone-400 mb-2">Message</label>
+                                <textarea required rows="4" class="w-full px-4 py-3 bg-stone-900 border border-white/10 rounded-lg focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 text-white transition-colors resize-none" placeholder="How can we collaborate?"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-semibold py-3 px-6 rounded-lg transition-colors flex justify-center items-center gap-2">
+                                Send Message <i class="fa-solid fa-paper-plane text-sm"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white text-stone-500 py-12 border-t border-stone-200">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-6">
+                <div class="flex items-center gap-2">
+                    <img src="assets/logo.png" alt="Vitacrop Technologies" class="h-8 w-auto">
+                    <span class="font-serif font-semibold text-stone-800">Vitacrop Technologies</span>
+                </div>
+                <div class="flex gap-6">
+                    <a href="https://www.linkedin.com/company/vitacrop-technologies-private-limited" class="hover:text-brand-700 transition-colors"><i class="fa-brands fa-linkedin text-xl"></i></a>
+                    <a href="#" class="hover:text-brand-700 transition-colors"><i class="fa-brands fa-twitter text-xl"></i></a>
+                    <a href="#" class="hover:text-brand-700 transition-colors"><i class="fa-brands fa-github text-xl"></i></a>
+                </div>
+            </div>
+
+            <div class="border-t border-stone-200 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+                <p>&copy; 2026 Vitacrop Technologies Pvt. Ltd. All rights reserved.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-stone-900 transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-stone-900 transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const links = document.querySelectorAll('.mobile-link');
+
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+                const icon = btn.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-xmark');
+            });
+
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                    const icon = btn.querySelector('i');
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                });
+            });
+
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                navbar.classList.toggle('shadow-md', window.scrollY > 20);
+            });
+
+            const form = document.getElementById('contact-form');
+            const successBox = document.getElementById('form-success');
+            const submitBtn = form.querySelector('button[type="submit"]');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Sending...';
+                submitBtn.disabled = true;
+
+                setTimeout(() => {
+                    successBox.classList.remove('hidden');
+                    form.reset();
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    setTimeout(() => successBox.classList.add('hidden'), 5000);
+                }, 1500);
+            });
+        });
+    </script>
+
+    <!-- ============================================================
+         WIX EMBED: map each image to its uploaded Wix Media URL
+         ------------------------------------------------------------
+         Upload the 12 files from  vitacrop-website/assets/  to your
+         Wix Media Manager, then paste each one's public URL below
+         (looks like  https://static.wixstatic.com/media/xxxxx.png ).
+         Leave a value as "" and that image just stays blank.
+         ============================================================ -->
+    <script>
+        (function () {
+            var IMAGES = {
+                "assets/logo.png":              "",
+                "assets/potato-protoplast.png": "",
+                "assets/precision-editing.png": "",
+                "assets/feature-image8.png":    "",
+                "assets/birac-logo.png":        "",
+                "assets/mutagenesis.png":       "",
+                "assets/opc.png":               "",
+                "assets/startup-india.png":     "",
+                "assets/startup-karnataka.png": "",
+                "assets/msme.png":              "",
+                "assets/c-camp.png":            "",
+                "assets/uasb.png":              ""
+            };
+
+            document.querySelectorAll('img[src^="assets/"]').forEach(function (img) {
+                var url = IMAGES[img.getAttribute('src')];
+                if (url) img.src = url;
+            });
+            var icon = document.querySelector('link[rel="icon"][href^="assets/"]');
+            if (icon && IMAGES[icon.getAttribute('href')]) icon.href = IMAGES[icon.getAttribute('href')];
+
+            // keep in-page nav links scrolling inside the embed instead of reloading it
+            document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+                a.addEventListener('click', function (e) {
+                    var id = a.getAttribute('href').slice(1);
+                    if (!id) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+                    var target = document.getElementById(id);
+                    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
